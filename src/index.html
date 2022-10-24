@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Certificates Tracker</title>
+
+     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      main {
+        margin-top: 60px;
+      }
+
+      #content {
+        display: none;
+      }
+
+      form {
+        width: 350px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-bottom: 0px;
+      }
+
+      #completedTaskList .content {
+        color: grey;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Certificates Tracker</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+          <small><a class="nav-link" href="#"><span id="account"></span></a></small>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div style="margin-top:50px" class="col-sm">
+          <form onSubmit="App.addCertificate(); return false;">
+              <input id="nameOfStudent" type="text" class="form-control" placeholder="Add name of the student..." required>              
+             <br> <input id="title" type="text" class="form-control" placeholder="Certificate title..." required>              
+             <br> <input id="universityName" type="text" class="form-control" placeholder="University..." required>              
+             <br> <input title="certificate date" id="date" type="date" class="form-control"  required> <br>             
+              <input type="submit" class="btn btn-success">
+            </form>
+        </div>
+        <main   class="col" style="float: left; margin-right:300px" >
+          <div id="loader"  >
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content">
+            
+            <ul id="certificates" class="list-unstyled">
+              <div class="certificateTemplate" class="checkbox" style="display: none">
+                <label style="border: 1px solid blue; padding:10px; border-radius: 5px; ">
+                  <span class="content" >title</span>
+                </label>
+              </div>
+            </ul>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/web3/dist/web3.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
